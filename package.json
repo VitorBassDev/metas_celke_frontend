@@ -1,0 +1,34 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "FrontEnd em REACT e NEXT.js para consumir a API de METAS 2021",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+    
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VitorBassDev/metas_celke_frontend.git"
+  },
+  "keywords": [
+    "react",
+    "next",
+    "node",
+    "javascript"
+  ],
+  "author": "Vítor Guedes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VitorBassDev/metas_celke_frontend/issues"
+  },
+  "homepage": "https://github.com/VitorBassDev/metas_celke_frontend#readme",
+  "dependencies": {
+    "next": "^10.0.5",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
