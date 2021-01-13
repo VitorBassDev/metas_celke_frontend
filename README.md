@@ -7,3 +7,5 @@
 * Execução do projeto
 - npm run dev
 
+* Conexão com a API
+- ServerSidePropos `no arquivo index.js`
