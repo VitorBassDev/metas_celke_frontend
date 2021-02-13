@@ -1,4 +1,4 @@
-* Criação do Projeto
+* Criação do Projeto Com Next
 
 - npm init
 - npm install next react react-dom
