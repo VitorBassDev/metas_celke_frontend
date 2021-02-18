@@ -1,5 +1,15 @@
 import React, {useState} from 'react';
-import {Button} from 'reactstrap';
+import
+ {
+  Button, 
+  Jumbotron,
+  Container,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  FormText
+  } from 'reactstrap';
 
 function Cadastrar() {
 	
@@ -70,56 +80,74 @@ function Cadastrar() {
 
   return (
 		<>
-			<h1>Cadastrar nova meta</h1>
-			<hr/>
+    <Jumbotron fluid className="form">
+      <style>
+        {`.form{
+            background-color: #171941;
+            color: #bf38ac;
+            padding-top: 30px;
+            padding-bottom: 150px;
+            margin-bottom: 0rem ! important ;
+          }`
+        }
+      </style>
+      <Container>
+        <h1>Cadastrar nova meta</h1>
+        <hr/>
 
-      {response.type === 'error'? <p>{response.message} </p>: ""}
-      {response.type === 'success'? <p>{response.message} </p>: ""}
+        {response.type === 'error'? <p>{response.message} </p>: ""}
+        {response.type === 'success'? <p>{response.message} </p>: ""}
 
-			<form onSubmit={sendMeta}>
-				<label> Nome </label>
+        <Form onSubmit={sendMeta}>
 
-				<input 
-					type="text"
-					name="name"
-          id="name" 
-					placeholder="Digite o Nome da Meta"
-          onChange={onChangeInput}
-          /> <br/> <br/>
+          <FormGroup>
+            <Label for="name">Nome</Label>
+            <Input 
+              type="text" 
+              name="name" 
+              id="name"
+              placeholder="Nome da Meta"
+              onChange={onChangeInput}
+            />
+          </FormGroup>
 
-        <label> Descrição </label>  
-        <input 
-					type="text"
-					name="description"
-          id="description"
-					placeholder="Digite a descrição" 
-          onChange={onChangeInput}
-          /> <br/> <br/>
+          <FormGroup>
+            <Label for="description">Descrição</Label>
+            <Input 
+              type="text" 
+              name="description" 
+              id="description"
+              placeholder="Descrição Detalhada"
+              onChange={onChangeInput}
+            />
+          </FormGroup>
 
-        <label> Status </label>
-        <input 
-					type="text"
-					name="status"
-          id="status"
-					placeholder="Digite o Status" 
-          onChange={onChangeInput}
-          /> <br/> <br/>
-
-          {
-          response.formSave ? 
-            <Button 
-              type="submit" disabled>
-              Enviando . . .
-            </Button> :
+          <FormGroup>
+            <Label for="status">Status</Label>
+              <Input type="select" name="status" id="status">
+                <option disabled >  </option>
+                <option>Pendente    </option>
+                <option>Iniciado    </option>
+                <option>Finalizado  </option>
+                
+              </Input>
+          </FormGroup>
+            {
+            response.formSave ? 
+              <Button 
+                type="submit" disabled>
+                Enviando . . .
+              </Button> :
+              
+              <Button 
+                type="submit">
+                Cadastrar
+              </Button>
+              }
             
-            <Button 
-              type="submit">
-              Cadastrar
-            </Button>
-            }
-          
-			</form>	 
-
+        </Form>
+      </Container>	 
+    </Jumbotron>
       <a href="/"> Voltar </a>
 		</>
 	)
