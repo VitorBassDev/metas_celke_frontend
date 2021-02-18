@@ -33,8 +33,6 @@ function Cadastrar() {
   const sendMeta = async e => {
     e.preventDefault();
 
-    console.log(meta)
-
     try{
       const res = await fetch('http://localhost:8080/metas', {
         method: 'POST', 
