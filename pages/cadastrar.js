@@ -8,6 +8,7 @@ import
   FormGroup,
   Label,
   Input,
+  Alert,
   } from 'reactstrap';
 
 function Cadastrar() {
@@ -94,8 +95,8 @@ function Cadastrar() {
         <h1>Cadastrar nova meta</h1>
         <hr/>
 
-        {response.type === 'error'? <p>{response.message} </p>: ""}
-        {response.type === 'success'? <p>{response.message} </p>: ""}
+        {response.type === 'error'? <Alert color="danger">{response.message} </Alert>: ""}
+        {response.type === 'success'? <Alert color="success">{response.message} </Alert>: ""}
 
         <Form onSubmit={sendMeta}>
 
