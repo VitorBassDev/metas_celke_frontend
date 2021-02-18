@@ -8,7 +8,6 @@ import
   FormGroup,
   Label,
   Input,
-  FormText
   } from 'reactstrap';
 
 function Cadastrar() {
@@ -114,40 +113,44 @@ function Cadastrar() {
           <FormGroup>
             <Label for="description">Descrição</Label>
             <Input 
-              type="text" 
+              type="textarea" 
               name="description" 
               id="description"
               placeholder="Descrição Detalhada"
               onChange={onChangeInput}
             />
           </FormGroup>
-
+          
           <FormGroup>
             <Label for="status">Status</Label>
-              <Input type="select" name="status" id="status">
+              <Input type="select" name="status" id="status" onChange={onChangeInput}>
                 <option disabled >  </option>
-                <option>Pendente    </option>
-                <option>Iniciado    </option>
-                <option>Finalizado  </option>
-                
+                <option value="Pendente" name="status"> Pendente </option>
+                <option value="Iniciado" name="status"> Iniciado    </option>
+                <option value="Finalizado"name="status"> Finalizado  </option>
               </Input>
           </FormGroup>
+
+
             {
             response.formSave ? 
               <Button 
-                type="submit" disabled>
+                color="danger"
+                type="submit" 
+                disabled>
                 Enviando . . .
               </Button> :
               
-              <Button 
-                type="submit">
-                Cadastrar
+              <Button
+                type="submit"
+                outline color="primary">
+                  Cadastrar
               </Button>
               }
-            
         </Form>
       </Container>	 
     </Jumbotron>
+
       <a href="/"> Voltar </a>
 		</>
 	)
