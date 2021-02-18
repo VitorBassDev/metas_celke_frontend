@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Button} from 'reactstrap';
 
 function Cadastrar() {
 	
@@ -6,6 +7,12 @@ function Cadastrar() {
     name: '', 
     description: '',
     status: ''
+  })
+
+  const [response, setResponse] = useState({
+    formsave: false,
+    type: '',
+    message: ''
   })
 
   /* PEGAR OS VALORES DA CONSTANTE META 
@@ -38,14 +45,26 @@ function Cadastrar() {
       // TRATAR A VALIDAÇÃO ENVIO DO FORMULÁRIO
       const respostaEnv = await res.json()
 
-      if (respostaEnv.error){
-        console.log(respostaEnv.message)
-      } else {
-        console.log(respostaEnv.message)
+        if (respostaEnv.error){
+          setResponseS({
+            formsave: false,
+            type: 'error',
+            message: respostaEnv.message
+          })
+        } else {
+          setResponse({
+            formsave: false,
+            type: 'success',
+            message: respostaEnv.message
+          })
       }
 
     }catch(err){
-      console.log('erro, meta não cadastrada com sucesso')
+      setResponse({
+        formsave: false,
+        type: 'error',
+        message: "Meta não cadastrada, tente novamente mais tarde"
+      })
     }
   }
 
@@ -53,6 +72,9 @@ function Cadastrar() {
 		<>
 			<h1>Cadastrar nova meta</h1>
 			<hr/>
+
+      {response.type === 'error'? <p>{response.message} </p>: ""}
+      {response.type === 'success'? <p>{response.message} </p>: ""}
 
 			<form onSubmit={sendMeta}>
 				<label> Nome </label>
@@ -83,9 +105,9 @@ function Cadastrar() {
           onChange={onChangeInput}
           /> <br/> <br/>
 
-          <button type="submit">
+          <Button type="submit">
             Cadastrar
-          </button>
+          </Button>
 			</form>	 
 
       <a href="/"> Voltar </a>

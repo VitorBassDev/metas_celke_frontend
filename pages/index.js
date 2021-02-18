@@ -1,7 +1,10 @@
+import { Container } from "reactstrap";
+
 function Home({data}) {
   return (
     <>
-      <h1> Minhas Metas</h1>
+    <Container>
+      <h1 className="mt-5 text-center text-primary"> Minhas Metas</h1>
       <hr/>
       <p>{console.log(data.metas)}</p>
         {data.metas.map(meta => (
@@ -13,6 +16,7 @@ function Home({data}) {
             <hr/>
           </div>
         ))}
+        </Container>
     </> 
   )}
   
