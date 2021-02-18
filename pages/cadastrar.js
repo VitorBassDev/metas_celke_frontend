@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Menu from '../components/Menu';
 import
  {
   Button, 
@@ -80,6 +81,7 @@ function Cadastrar() {
 
   return (
 		<>
+    <Menu/>
     <Jumbotron fluid className="form">
       <style>
         {`.form{

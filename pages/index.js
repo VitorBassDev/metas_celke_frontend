@@ -1,8 +1,10 @@
 import { Container } from "reactstrap";
+import Menu from '../components/Menu';
 
 function Home({data}) {
   return (
     <>
+    <Menu/>
     <Container>
       <h1 className="mt-5 text-center text-primary"> Minhas Metas</h1>
       <hr/>
